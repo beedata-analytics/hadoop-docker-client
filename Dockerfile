@@ -31,3 +31,14 @@ ENV HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib"
 ENV HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
 
 ENV PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
+
+RUN mkdir -p /usr/jdk64
+WORKDIR /usr/jdk64
+RUN wget http://public-repo-1.hortonworks.com/ARTIFACTS/jdk-8u112-linux-x64.tar.gz
+RUN gunzip jdk-8u112-linux-x64.tar.gz
+RUN tar -xf jdk-8u112-linux-x64.tar
+
+RUN update-alternatives --install /usr/bin/java java /usr/jdk64/jdk1.8.0_112/bin/java 1
+RUN ln -s -f /usr/jdk64/jdk1.8.0_112/bin/java /usr/bin/java
+
+ENV JAVA_HOME=/usr/jdk64/jdk1.8.0_112
