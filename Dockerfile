@@ -42,3 +42,9 @@ RUN update-alternatives --install /usr/bin/java java /usr/jdk64/jdk1.8.0_112/bin
 RUN ln -s -f /usr/jdk64/jdk1.8.0_112/bin/java /usr/bin/java
 
 ENV JAVA_HOME=/usr/jdk64/jdk1.8.0_112
+
+ENV HADOOP_CONF_DIR /usr/local/hadoop-cluster-conf
+RUN mkdir -p $HADOOP_CONF_DIR
+RUN chmod -R 775 $HADOOP_CONF_DIR
+
+ENTRYPOINT ["/bin/bash"]
