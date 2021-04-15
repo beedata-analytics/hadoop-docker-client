@@ -2,10 +2,10 @@ FROM ubuntu:18.04
 
 MAINTAINER "Beedata Analytics <info@beedataanalytics.com>"
 
-RUN apt-get update \
-	&& apt-get upgrade -y \
-    && apt-get install -y \
-	wget
+RUN apt-get update && \
+	  apt-get upgrade -y && \
+    apt-get install -y \
+		wget
 
 WORKDIR /tmp
 

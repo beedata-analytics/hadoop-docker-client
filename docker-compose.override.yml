@@ -1,0 +1,13 @@
+version: '3'
+services:
+  hadoop-docker-client:
+    volumes:
+      - /usr/hdp/current/hadoop-client/conf:/usr/local/hadoop-cluster-conf
+      - /usr/jdk64:/usr/jdk64
+      - /etc/passwd:/etc/passwd
+      - /etc/group:/etc/group
+      - /etc:/etc
+    env_file: .env
+    network_mode: "host"
+    command: >
+      bash -c "/bin/bash"
