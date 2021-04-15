@@ -51,4 +51,6 @@ RUN apt-get -qq update && \
     apt-get -yqq install krb5-user libpam-krb5 && \
     apt-get -yqq clean
 
+ENV KRB5_CONFIG=/etc/krb5.conf
+
 ENTRYPOINT ["/bin/bash"]
