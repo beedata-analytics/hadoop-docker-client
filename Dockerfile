@@ -47,4 +47,8 @@ ENV HADOOP_CONF_DIR /usr/local/hadoop-cluster-conf
 RUN mkdir -p $HADOOP_CONF_DIR
 RUN chmod -R 775 $HADOOP_CONF_DIR
 
+RUN apt-get -qq update && \
+    apt-get -yqq install krb5-user libpam-krb5 && \
+    apt-get -yqq clean
+
 ENTRYPOINT ["/bin/bash"]
