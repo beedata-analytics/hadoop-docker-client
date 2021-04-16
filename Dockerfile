@@ -3,9 +3,9 @@ FROM ubuntu:18.04
 MAINTAINER "Beedata Analytics <info@beedataanalytics.com>"
 
 RUN apt-get update && \
-	  apt-get upgrade -y && \
-    apt-get install -y \
-		wget
+	apt-get upgrade -y && \
+	apt-get install -y \
+	wget
 
 WORKDIR /tmp
 
@@ -41,8 +41,8 @@ RUN ln -s -f /usr/jdk64/jdk1.8.0_112/bin/java /usr/bin/java
 ENV JAVA_HOME=/usr/jdk64/jdk1.8.0_112
 
 RUN apt-get -qq update && \
-    apt-get -yqq install krb5-user libpam-krb5 && \
-    apt-get -yqq clean
+	apt-get -yqq install krb5-user libpam-krb5 && \
+	apt-get -yqq clean
 
 ENV KRB5_CONFIG=/etc/krb5.conf
 
